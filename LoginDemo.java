@@ -4,17 +4,31 @@ public class LoginDemo {
 
 	public static void main(String[] args) {
 		
-		User u = new User("Ian");
+		Monitor m = new Monitor();
 		
-		LoginEvent a1 = new LoginEvent("Ian", false);
-		LoginEvent a2 = new LoginEvent("Ian", true);
+		m.startSession();
+		m.recordEvent(new LoginEvent("Ian", LoginResult.SUCCESS));
+        m.recordEvent(new LoginEvent("Alice", LoginResult.SUCCESS));
+        m.printReport();
+
+        // Session B
+        m.startSession();
+        m.recordEvent(new LoginEvent("Ian", LoginResult.FAIL));
+        m.recordEvent(new LoginEvent("Alice", LoginResult.FAIL));
+        m.printReport();
+
+        // Session C
+        m.startSession();
+        m.recordEvent(new LoginEvent("Ian", LoginResult.SUCCESS));
+        m.recordEvent(new LoginEvent("Alice", LoginResult.FAIL));
+        m.recordEvent(new LoginEvent("Ian", LoginResult.FAIL));
+        m.printReport();
+    }
+
 		
-		System.out.println("User: " + u.getUsername());
-		System.out.println("LoginEvent: " + a1.getSuccess());
-		System.out.println("LoginEvent: " + a2.getSuccess());
 		
 		
 
 	}
 
-}
+
