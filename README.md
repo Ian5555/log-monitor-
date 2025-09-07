@@ -9,3 +9,9 @@ Tracks login attempts and flags suspicious behavior.
 - [x] Create User class
 - [x] Create LoginEvent class
 - [x] Create LoginDemo with test events
+      
+## Week 2
+- [x] Create LoginResult enum
+- [x] Update LoginEvent to use LoginResult
+- [x] Create Monitor class with ArrayList and printReport
+- [x] Update LoginDemo with three sessions (all success, all fail, mixed)
